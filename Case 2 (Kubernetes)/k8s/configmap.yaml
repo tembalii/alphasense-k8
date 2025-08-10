@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: myapp-config
+  namespace: myapp
+data:
+  config.yaml: |
+    server:
+      port: 5000
+    logging:
+      level: WARN
+      format: json              # Structured logging
+      output: stdout            # Container-friendly
+    health:
+      endpoint: "/health"       # Health check endpoint
+      interval: 10              # Check frequency
+    metrics:
+      enabled: true             # Enable metrics
+      endpoint: "/metrics"      # Metrics endpoint
